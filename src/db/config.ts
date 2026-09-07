@@ -8,7 +8,7 @@ const password = process.env.DB_PASSWORD;
 const database = process.env.DB_NAME;
 
 
-if (!host || !database || !user) {
+if (!host || !database || !user || !password) {
   throw new Error("Missing database connection credentials in .env file");
 }
 
