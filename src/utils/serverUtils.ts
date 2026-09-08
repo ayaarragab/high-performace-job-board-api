@@ -1,24 +1,16 @@
 import { type Application } from "express";
 import type { Server } from "http";
 import { type Sql } from "postgres";
+import startDB from "../db/dbInit.js";
 import "dotenv/config";
 
-const establishDBConn = async (sql: Sql) => {
-  try {
-    const conn = await sql`Select 1`;
-    console.log("DB connection established correctly");
-  } catch (error) {
-    throw new Error(
-      "Issue while connection to database: " + (error as Error).message,
-    );
-  }
-};
 
 export const startServer = async (app: Application, sql: Sql) => {
   const PORT = process.env.PORT;
+
   let server;
   try {
-    await establishDBConn(sql);
+    await startDB(sql);
     server = app.listen(PORT, () => {
       console.log(`Server started successfully at port: ${PORT}`);
     });
