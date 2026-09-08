@@ -46,7 +46,7 @@ const dbTablesInit = async (sql: Sql) => {
         description TEXT NOT NULL,
         company_id INTEGER NOT NULL REFERENCES companies(id) ON DELETE CASCADE,
         salary_max INTEGER,
-        salary_min INTEGER CHECK (salary_min < salary_max),
+        salary_min INTEGER CHECK (salary_min <= salary_max),
         status job_status NOT NULL DEFAULT 'open',
         remote_type job_remote_type NOT NULL,
         location TEXT NOT NULL,
