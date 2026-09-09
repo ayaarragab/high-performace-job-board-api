@@ -1,4 +1,4 @@
-# performant-job-board-api
+# High Performance Job Board API
 I'm refining my backend and system design skills through building a well-built, high performance, and secure API.
 
 ## Table of Contents
